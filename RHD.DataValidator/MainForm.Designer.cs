@@ -37,11 +37,11 @@
 			this.statusStrip1 = new System.Windows.Forms.StatusStrip();
 			this.dataGridView = new System.Windows.Forms.DataGridView();
 			this.StatusImage = new System.Windows.Forms.DataGridViewImageColumn();
-			this.folderBrowserDialog2 = new System.Windows.Forms.FolderBrowserDialog();
 			this.statusDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.validationStepDescriptionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.validationStepStatusMessageDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.validationStepBindingSource = new System.Windows.Forms.BindingSource(this.components);
+			this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
 			this.groupBox1.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.validationStepBindingSource)).BeginInit();
@@ -157,6 +157,12 @@
 			// 
 			this.validationStepBindingSource.DataSource = typeof(RHDBatchChecker.ValidationStep);
 			// 
+			// backgroundWorker1
+			// 
+			this.backgroundWorker1.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorker1_DoWork);
+			this.backgroundWorker1.ProgressChanged += new System.ComponentModel.ProgressChangedEventHandler(this.backgroundWorker1_ProgressChanged);
+			this.backgroundWorker1.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.backgroundWorker1_RunWorkerCompleted);
+			// 
 			// MainForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -169,6 +175,7 @@
 			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
 			this.Name = "MainForm";
 			this.Text = "PH18 Data Validator";
+			this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.MainForm_FormClosed);
 			this.Load += new System.EventHandler(this.MainForm_Load);
 			this.groupBox1.ResumeLayout(false);
 			this.groupBox1.PerformLayout();
@@ -188,11 +195,11 @@
 		private System.Windows.Forms.StatusStrip statusStrip1;
 		private System.Windows.Forms.DataGridView dataGridView;
 		private System.Windows.Forms.BindingSource validationStepBindingSource;
-		private System.Windows.Forms.FolderBrowserDialog folderBrowserDialog2;
 		private System.Windows.Forms.DataGridViewImageColumn StatusImage;
 		private System.Windows.Forms.DataGridViewTextBoxColumn statusDataGridViewTextBoxColumn;
 		private System.Windows.Forms.DataGridViewTextBoxColumn validationStepDescriptionDataGridViewTextBoxColumn;
 		private System.Windows.Forms.DataGridViewTextBoxColumn validationStepStatusMessageDataGridViewTextBoxColumn;
+		private System.ComponentModel.BackgroundWorker backgroundWorker1;
 	}
 }
 
